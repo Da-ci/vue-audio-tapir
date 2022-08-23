@@ -65,7 +65,8 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "quotes": "off"
+      "quotes": "off",
+      "max-len": "off"
     }
   },
   "browserslist": [

@@ -1,7 +1,7 @@
 <template>
-  <button @click="clickButton" :style="{ 'background-color': color }"
+  <button @click="clickButton" :style="{ 'background-color': '#242331', 'color': 'white' }"
           class="p-3 mt-8 text-black rounded-md">
-    Submit
+    Enregistrer
   </button>
 </template>
 
