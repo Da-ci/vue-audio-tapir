@@ -10,7 +10,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
-    "build": "NODE_ENV=production && vue-cli-service build --mode production --target lib --name vue-audio-tapir src/components/TapirWidget.vue"
+    "build": "SET NODE_ENV=production && vue-cli-service build --mode production --target lib --name vue-audio-tapir src/components/TapirWidget.vue"
   },
   "keywords": [
     "vue",
