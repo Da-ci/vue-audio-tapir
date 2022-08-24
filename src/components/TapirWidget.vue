@@ -1,6 +1,6 @@
 <template>
   <!-- eslint-disable-next-line vue/max-attributes-per-line -->
-  <div class="text-center font-sans w-96 mx-auto rounded-lg shadow-lg border-solid border-2 p-8">
+  <div class="text-center font-sans w-96 mx-auto rounded-lg border-solid border-2 p-10">
     <h2 class="font-bold text-2xl">Enregistrer un message audio</h2>
     <div>
       <icon-button
@@ -40,12 +40,12 @@ import Recorder from "../lib/recorder";
 import convertTimeMMSS from "../lib/utils";
 import "../styles/app.css";
 
-const INSTRUCTION_MESSAGE = "Click icon to start recording message.";
-const INSTRUCTION_MESSAGE_STOP = "Click icon again to stop recording.";
-const ERROR_MESSAGE = "Failed to use microphone. Please refresh and try again and permit the use of a microphone.";
-const SUCCESS_MESSAGE = "Successfully recorded message!";
-const SUCCESS_MESSAGE_SUBMIT = "Successfully submitted audio message! Thank you!";
-const ERROR_SUBMITTING_MESSAGE = "Error submitting audio message! Please try again later.";
+const INSTRUCTION_MESSAGE = "Cliquez sur l'icône pour commencer à enregistrer le message.";
+const INSTRUCTION_MESSAGE_STOP = "Cliquez à nouveau sur l'icône pour arrêter l'enregistrement.";
+const ERROR_MESSAGE = "L'utilisation du microphone a échoué. Veuillez rafraîchir et réessayer et autoriser l'utilisation d'un microphone.";
+const SUCCESS_MESSAGE = "Message enregistré avec succès !";
+const SUCCESS_MESSAGE_SUBMIT = "Le message audio a été soumis avec succès ! Merci !";
+const ERROR_SUBMITTING_MESSAGE = "Erreur de soumission du message audio ! Veuillez réessayer plus tard.";
 
 export default {
   name: "TapirWidget",
