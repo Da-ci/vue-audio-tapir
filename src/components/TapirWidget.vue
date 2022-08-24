@@ -1,31 +1,30 @@
 <template>
   <!-- eslint-disable-next-line vue/max-attributes-per-line -->
   <!-- eslin-disable-no-trailing-spaces -->
-  <div class="text-center font-sans  mx-auto rounded-lg border-solid border-2 p-10 container-bg"
-    :style="{ 'background-color': 'white !important', 'margin-top': '30px', 'margin-bottom': '30px' }">
-
-    <div class="flex" style="background-color: red">
-      <div style="background-color: green">
-        <icon-button :style="{ 'border-color': '#242331' }" :class="buttonClass" v-if="recording" name="stop"
-          @click="toggleRecording" />
-        <icon-button :style="{ 'border-color': '#242331' }" :class="buttonClass" v-else name="mic"
-          @click="toggleRecording" />
-      </div>
-      <div style="background-color: blue">
-        <div style="background-color: pink; margin-top: 25px">
-          <div>{{ recordedTime }}</div>
-          <div class="text-sm font-bold">{{ successMessage }}</div>
-          <div class="text-sm">{{ instructionMessage }}</div>
-          <div class="text-sm text-red-400">{{ errorMessage }}</div>
-        </div>
+  <div class="text-center font-sans mx-auto rounded-lg border-2"
+    :style="{ 'background-color': 'white !important', 'margin-top': '30px', 'margin-bottom': '30px', 'max-width': '600px' }">
+    <div>
+      <div>
+        <div class="text-sm font-bold">Durée : {{ recordedTime }}</div>
+        <div class="text-sm font-bold">{{ successMessage }}</div>
+        <div class="text-sm">{{ instructionMessage }}</div>
+        <div class="text-sm text-red-400">{{ errorMessage }}</div>
       </div>
     </div>
-    <figure class="mt-8" style="background-color: red; width: 100%">
-      <audio controls :src="recordedAudio" type="audio/mpeg" class="mx-auto" style="width: 100%">
-        Your browser does not support the
-        <code>audio</code> element.
-      </audio>
-      <figcaption class="text-sm mt-2">Écoutez votre enregistrement avant de le soumettre.</figcaption>
+    <figure class="mt-8" style="width: 100%">
+      <div class="flex">
+        <div style="margin-top: -15px; margin-right: 10px">
+          <icon-button :style="{ 'border-color': '#242331' }" :class="buttonClass" v-if="recording" name="stop"
+            @click="toggleRecording" />
+          <icon-button :style="{ 'border-color': '#242331' }" :class="buttonClass" v-else name="mic"
+            @click="toggleRecording" />
+        </div>
+        <audio controls :src="recordedAudio" type="audio/mpeg" class="mx-auto" style="width: 100%">
+          Your browser does not support the
+          <code>audio</code> element.
+        </audio>
+      </div>
+      <figcaption class="text-sm">Écoutez votre enregistrement avant de le soumettre.</figcaption>
     </figure>
     <submit-button @submit="sendData" :color="buttonColor" />
   </div>
