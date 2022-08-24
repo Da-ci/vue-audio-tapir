@@ -1,6 +1,6 @@
 <template>
   <!-- eslint-disable-next-line vue/max-attributes-per-line -->
-  <div class="text-center font-sans w-96 mx-auto rounded-lg border-solid border-2 p-10" :style="{'background-color': 'white !important'}">
+  <div class="text-center font-sans w-96 mx-auto rounded-lg border-solid border-2 p-10 container-bg" :style="{'background-color': 'white !important'}">
     <h2 class="font-bold text-2xl">Enregistrer un message audio</h2>
     <div>
       <icon-button
