@@ -1,6 +1,6 @@
 <template>
-  <button @click="clickButton" :style="{ 'background-color': '#242331' }"
-          class="p-3 mt-8 text-white rounded-md">
+  <button @click="clickButton" :style="{ 'background-color': '#242331 !important', 'color': 'white !important' }"
+          class="p-3 mt-8 text-white rounded-md button-btn">
     Enregistrer
   </button>
 </template>
