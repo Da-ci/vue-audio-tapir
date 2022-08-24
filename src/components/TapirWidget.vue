@@ -1,22 +1,43 @@
 <template>
   <!-- eslint-disable-next-line vue/max-attributes-per-line -->
-  <div class="text-center font-sans w-96 mx-auto rounded-lg border-solid border-2 p-10 container-bg" :style="{'background-color': 'white !important'}">
+  <!-- eslin-disable-no-trailing-spaces -->
+  <div class="text-center font-sans  mx-auto rounded-lg border-solid border-2 p-10 container-bg"
+    :style="{ 'background-color': 'white !important', 'margin-top': '30px', 'margin-bottom': '30px' }">
+
+    <div class="flex" style="background-color: red">
+      <div style="background-color: green">
+        <icon-button :style="{ 'border-color': '#242331' }" :class="buttonClass" v-if="recording" name="stop"
+          @click="toggleRecording" />
+        <icon-button :style="{ 'border-color': '#242331' }" :class="buttonClass" v-else name="mic"
+          @click="toggleRecording" />
+      </div>
+      <div style="background-color: blue">
+        <div style="background-color: pink; margin-top: 25px">
+          <div>{{ recordedTime }}</div>
+          <div class="text-sm font-bold">{{ successMessage }}</div>
+          <div class="text-sm">{{ instructionMessage }}</div>
+          <div class="text-sm text-red-400">{{ errorMessage }}</div>
+        </div>
+      </div>
+    </div>
+    <figure class="mt-8" style="background-color: red; width: 100%">
+      <audio controls :src="recordedAudio" type="audio/mpeg" class="mx-auto" style="width: 100%">
+        Your browser does not support the
+        <code>audio</code> element.
+      </audio>
+      <figcaption class="text-sm mt-2">Écoutez votre enregistrement avant de le soumettre.</figcaption>
+    </figure>
+    <submit-button @submit="sendData" :color="buttonColor" />
+  </div>
+
+  <!-- <div class="text-center font-sans w-96 mx-auto rounded-lg border-solid border-2 p-10 container-bg"
+    :style="{ 'background-color': 'white !important' }">
     <h2 class="font-bold text-2xl">Enregistrer un message audio</h2>
     <div>
-      <icon-button
-        :style="{ 'border-color': '#242331' }"
-        :class="buttonClass"
-        v-if="recording"
-        name="stop"
-        @click="toggleRecording"
-      />
-      <icon-button
-        :style="{ 'border-color': '#242331' }"
-        :class="buttonClass"
-        v-else
-        name="mic"
-        @click="toggleRecording"
-      />
+      <icon-button :style="{ 'border-color': '#242331' }" :class="buttonClass" v-if="recording" name="stop"
+        @click="toggleRecording" />
+      <icon-button :style="{ 'border-color': '#242331' }" :class="buttonClass" v-else name="mic"
+        @click="toggleRecording" />
     </div>
     <div>{{ recordedTime }}</div>
     <div class="text-sm font-bold">{{ successMessage }}</div>
@@ -30,7 +51,7 @@
       <figcaption class="text-sm mt-2">Écoutez votre enregistrement avant de le soumettre.</figcaption>
     </figure>
     <submit-button @submit="sendData" :color="buttonColor" />
-  </div>
+  </div> -->
 </template>
 
 <script>
