@@ -5,21 +5,21 @@
     :style="{ 'background-color': 'white !important', 'margin-top': '30px', 'margin-bottom': '30px', 'max-width': '600px' }">
     <div>
       <div>
-        <div class="text-sm font-bold">Durée :: {{ recordedTime }}</div>
+        <div class="text-sm font-bold">Durée : {{ recordedTime }}</div>
         <div class="text-sm font-bold">{{ successMessage }}</div>
         <div class="text-sm">{{ instructionMessage }}</div>
         <div class="text-sm text-red-400">{{ errorMessage }}</div>
       </div>
     </div>
     <figure class="mt-8" style="width: 100%">
-      <div class="flex">
+      <div class="flex flex-nowrap">
         <div style="margin-top: -15px; margin-right: 10px">
           <icon-button :style="{ 'border-color': '#242331' }" :class="buttonClass" v-if="recording" name="stop"
             @click="toggleRecording" />
           <icon-button :style="{ 'border-color': '#242331' }" :class="buttonClass" v-else name="mic"
             @click="toggleRecording" />
         </div>
-        <audio controls :src="recordedAudio" type="audio/mpeg" class="mx-auto" style="width: 100%">
+        <audio controls :src="recordedAudio" type="audio/mpeg" class="mx-right" style="width: 100%">
           Your browser does not support the
           <code>audio</code> element.
         </audio>
