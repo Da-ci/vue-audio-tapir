@@ -2,7 +2,7 @@
   <!-- eslint-disable-next-line vue/max-attributes-per-line -->
   <!-- eslin-disable-no-trailing-spaces -->
   <div class="text-center font-sans rounded-lg"
-    :style="{ 'background-color': 'white !important', 'margin-top': '30px', 'margin-bottom': '30px', 'max-width': '600px' }">
+    :style="{ 'background-color': 'white !important', 'margin-top': '30px', 'margin-bottom': '30px', 'max-width': '600px', }">
     <div>
       <div>
         <div class="text-sm font-bold">Durée : {{ recordedTime }}</div>
@@ -13,7 +13,7 @@
     </div>
     <figure class="mt-8" style="width: 100%">
       <div class="flex flex-nowrap">
-        <div style="margin-top: -15px; margin-right: 10px">
+        <div style="margin-top: -15px; margin-right: 10px;">
           <icon-button :style="{ 'border-color': '#242331' }" :class="buttonClass" v-if="recording" name="stop"
             @click="toggleRecording" />
           <icon-button :style="{ 'border-color': '#242331' }" :class="buttonClass" v-else name="mic"
@@ -31,7 +31,7 @@
         <div class="text-sm text-red-400">{{ errorMessage }}</div>
       </figcaption>
     </figure>
-    <submit-button @submit="sendData" :color="buttonColor" />
+    <submit-button @submit="sendData" :color="buttonColor" style="display: none;" />
   </div>
 
 </template>
