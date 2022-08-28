@@ -1,14 +1,14 @@
 <template>
   <!-- eslint-disable-next-line vue/max-attributes-per-line -->
   <!-- eslin-disable-no-trailing-spaces -->
-  <div class="text-center font-sans mx-auto rounded-lg border-2"
+  <div class="text-center font-sans rounded-lg"
     :style="{ 'background-color': 'white !important', 'margin-top': '30px', 'margin-bottom': '30px', 'max-width': '600px' }">
     <div>
       <div>
-        <div class="text-sm font-bold">Durée : {{ recordedTime }}</div>
-        <div class="text-sm font-bold">{{ successMessage }}</div>
+        <div class="text-sm font-bold">{{ recordedTime }}</div>
+        <!-- <div class="text-sm font-bold">{{ successMessage }}</div>
         <div class="text-sm">{{ instructionMessage }}</div>
-        <div class="text-sm text-red-400">{{ errorMessage }}</div>
+        <div class="text-sm text-red-400">{{ errorMessage }}</div> -->
       </div>
     </div>
     <figure class="mt-8" style="width: 100%">
@@ -24,33 +24,16 @@
           <code>audio</code> element.
         </audio>
       </div>
-      <figcaption class="text-sm">Écoutez votre enregistrement avant de le soumettre.</figcaption>
+      <!-- <figcaption class="text-sm">Écoutez votre enregistrement avant de le soumettre.</figcaption> -->
+      <figcaption>
+        <div class="text-sm font-bold">{{ successMessage }}</div>
+        <div class="text-sm">{{ instructionMessage }}</div>
+        <div class="text-sm text-red-400">{{ errorMessage }}</div>
+      </figcaption>
     </figure>
     <submit-button @submit="sendData" :color="buttonColor" />
   </div>
 
-  <!-- <div class="text-center font-sans w-96 mx-auto rounded-lg border-solid border-2 p-10 container-bg"
-    :style="{ 'background-color': 'white !important' }">
-    <h2 class="font-bold text-2xl">Enregistrer un message audio</h2>
-    <div>
-      <icon-button :style="{ 'border-color': '#242331' }" :class="buttonClass" v-if="recording" name="stop"
-        @click="toggleRecording" />
-      <icon-button :style="{ 'border-color': '#242331' }" :class="buttonClass" v-else name="mic"
-        @click="toggleRecording" />
-    </div>
-    <div>{{ recordedTime }}</div>
-    <div class="text-sm font-bold">{{ successMessage }}</div>
-    <div class="text-sm">{{ instructionMessage }}</div>
-    <div class="text-sm text-red-400">{{ errorMessage }}</div>
-    <figure class="mt-8">
-      <audio controls :src="recordedAudio" type="audio/mpeg" class="mx-auto">
-        Your browser does not support the
-        <code>audio</code> element.
-      </audio>
-      <figcaption class="text-sm mt-2">Écoutez votre enregistrement avant de le soumettre.</figcaption>
-    </figure>
-    <submit-button @submit="sendData" :color="buttonColor" />
-  </div> -->
 </template>
 
 <script>
@@ -81,6 +64,7 @@ export default {
     afterRecording: { type: Function },
     successfulUpload: { type: Function },
     failedUpload: { type: Function },
+
   },
   components: {
     IconButton,
@@ -105,8 +89,9 @@ export default {
       if (this.time && this.recorder?.duration >= this.time * 60) {
         this.toggleRecording();
       }
-      return convertTimeMMSS(this.recorder?.duration);
+      return convertTimeMMSS(this.recorder?.duration) ? convertTimeMMSS(this.recorder?.duration) : '00:00';
     },
+
   },
   beforeUnmount() {
     if (this.recording) {
