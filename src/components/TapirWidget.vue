@@ -5,7 +5,7 @@
     :style="{ 'background-color': 'white !important', 'margin-top': '30px', 'margin-bottom': '30px', 'max-width': '600px' }">
     <div>
       <div>
-        <div class="text-sm font-bold">{{ recordedTime }}</div>
+        <div class="text-sm font-bold">Durée : {{ recordedTime }}</div>
         <!-- <div class="text-sm font-bold">{{ successMessage }}</div>
         <div class="text-sm">{{ instructionMessage }}</div>
         <div class="text-sm text-red-400">{{ errorMessage }}</div> -->
